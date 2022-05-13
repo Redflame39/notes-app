@@ -6,12 +6,12 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:focusable="true"
-    app:cardUseCompatPadding="true" >
+    app:cardUseCompatPadding="true"
+    android:backgroundTint="@color/dark_grey" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/dark_grey"
         android:padding="16dp" >
 
         <TextView

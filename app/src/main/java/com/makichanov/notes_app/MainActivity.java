@@ -104,12 +104,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (editable.toString().isEmpty()) {
+                String text = searchEditText.getText().toString();
+                if (text.trim().replaceAll("\\n", "")
+                        .isEmpty()) {
                     noteService.readAll()
                             .subscribeOn(Schedulers.newThread())
                             .observeOn(AndroidSchedulers.mainThread())
@@ -129,8 +126,9 @@ public class MainActivity extends AppCompatActivity {
 
                                 }
                             });
+                    return;
                 }
-                noteService.readByTitlePart(editable.toString())
+                noteService.readByTitlePart(text)
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeWith(new SingleObserver<List<Note>>() {
@@ -142,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(@NonNull List<Note> notes) {
                                 noteService.replaceNotes(notes);
+                                adapter.notifyDataSetChanged();
                             }
 
                             @Override
@@ -149,6 +148,11 @@ public class MainActivity extends AppCompatActivity {
 
                             }
                         });
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
     }

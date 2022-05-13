@@ -40,6 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:breakStrategy="balanced"
+        android:textColor="@color/white"
+        android:textSize="48sp"
         app:layout_constraintTop_toBottomOf="@id/explore_note_top_space"
         android:layout_margin="16dp" />
 
@@ -54,6 +56,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:breakStrategy="balanced"
+        android:textSize="16sp"
+        android:textColor="@color/dark_grey"
         app:layout_constraintTop_toBottomOf="@id/explore_note_title_space"
         android:layout_margin="16dp" />
 
@@ -68,6 +72,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:breakStrategy="balanced"
+        android:textSize="24sp"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/explore_date_top_space"
         android:layout_margin="16dp" />
 
